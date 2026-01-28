@@ -1,0 +1,174 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+/* ส่วนนี้จะทำให้ Header เต็มความกว้างหน้าจอ */
+.app-header {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 2rem;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ปรับส่วนค้นหาให้สวยขึ้น */
+.controls {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: -30px; /* ให้มันเหลื่อมขึ้นไปทับ Header นิดๆ แบบ IG */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* ... (CSS ส่วนอื่นๆ ของเดิมยังใช้ได้ครับ) ... */
+/* จัดการหน้าจอหลัก */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* สร้างระบบ Grid สำหรับการ์ด */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* ตกแต่งการ์ดอุปกรณ์ */
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+/* จัดการ Layout ทั้งหน้า */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Kanit', sans-serif;
+}
+
+/* ระบบ Grid ของการ์ดอุปกรณ์ */
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ตกแต่งการ์ด */
+.equipment-card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s;
+  border: 1px solid #e5e7eb;
+}
+
+.equipment-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ตกแต่งรูปภาพ */
+.equipment-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background-color: #f3f4f6; /* สีพื้นหลังถ้ารูปเสีย */
+}
+
+/* ตกแต่งปุ่ม */
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  margin-top: 1rem;
+}
+
+.btn-borrow {
+  background-color: #10b981; /* สีเขียว */
+  color: white;
+}
+
+.btn-borrow:hover {
+  background-color: #059669;
+}
+
+.btn-return {
+  background-color: #ef4444; /* สีแดง */
+  color: white;
+}
+
+.btn-return:hover {
+  background-color: #dc2626;
+}
+
+/* สถานะตัวอักษร */
+.status-available { color: #10b981; font-weight: bold; }
+.status-borrowed { color: #ef4444; font-weight: bold; }
