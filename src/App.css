@@ -1,8 +1,15 @@
 /* src/App.css */
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap");
 
 :root {
-  --primary-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  --primary-gradient: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
 }
 
 * {
@@ -12,19 +19,18 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
   background-color: #fafafa;
   min-height: 100vh;
 }
 
-/* ส่วนนี้จะทำให้ Header เต็มความกว้างหน้าจอ */
 .app-header {
   background: var(--primary-gradient);
   color: white;
   padding: 2rem;
   width: 100%;
   text-align: left;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -33,31 +39,39 @@ body {
   padding: 20px;
 }
 
-/* ปรับส่วนค้นหาให้สวยขึ้น */
+/* ส่วนค้นหา */
 .controls {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  margin-top: -30px; /* ให้มันเหลื่อมขึ้นไปทับ Header นิดๆ แบบ IG */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  align-items: center;
+  align-items: center; /* จัดให้กึ่งกลางแนวตั้งตรงกัน */
+  gap: 16px; /* ระยะห่างระหว่าง Search และ Buttons */
+  margin-bottom: 24px;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-
 .search-box {
   flex: 1;
-  min-width: 200px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0 12px;
 }
-
 .search-box input {
   width: 100%;
-  padding: 12px 12px 12px 40px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap; /* กันปุ่มตกบรรทัดถ้าจอแคบ */
 }
 
 .card-grid {
@@ -67,7 +81,6 @@ body {
   margin-top: 30px;
 }
 
-/* ... (CSS ส่วนอื่นๆ ของเดิมยังใช้ได้ครับ) ... */
 /* จัดการหน้าจอหลัก */
 .container {
   max-width: 1000px;
@@ -88,23 +101,60 @@ body {
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 15px;
   text-align: center;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column; /* จัดเนื้อหาเป็นแนวตั้ง */
+  padding: 15px;
+  height: 250px; /* กำหนดความสูงคงที่เพื่อให้ทุกใบเท่ากัน */
+}
+.card-content-wrapper {
+  flex: 1; /* ยืดพื้นที่เพื่อดันปุ่มลงล่าง */
+  text-align: center;
+}
+/* จองที่ว่างสำหรับข้อมูลผู้ยืม (กันปุ่มเยื้อง) */
+.borrow-info-container {
+  min-height: 60px; /* ความสูงสำหรับข้อมูลผู้ยืม 2 บรรทัด */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+}
+/* ส่วนที่เก็บข้อมูลผู้ยืม (ถ้ามี) */
+.borrow-info {
+  min-height: 50px; /* จองที่ว่างไว้เพื่อให้ Card ที่ไม่มีคนยืมไม่หดสั้นกว่าใบอื่น */
+  margin-bottom: 10px;
+}
+
+/* ส่วนล่างสุดที่วางปุ่ม */
+/* ส่วนปุ่มกด */
+.card-footer {
+  margin-top: auto; /* ดันปุ่มติดขอบล่างเสมอ */
+  width: 100%;
+}
+
+.card-actions {
+  margin-top: auto;
+  padding-top: 15px;
 }
 
 .card img {
   width: 100%;
   height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid #070707;
 }
 /* จัดการ Layout ทั้งหน้า */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 /* ระบบ Grid ของการ์ดอุปกรณ์ */
@@ -136,23 +186,28 @@ body {
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 1rem;
-  background-color: #f3f4f6; /* สีพื้นหลังถ้ารูปเสีย */
+  background-color: #f3f4f6;
 }
 
 /* ตกแต่งปุ่ม */
 .btn {
   width: 100%;
-  padding: 0.75rem;
+  padding: 12px;
   border-radius: 8px;
-  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
   border: none;
-  margin-top: 1rem;
+  font-weight: bold;
 }
-
+.btn-primary {
+  background-color: #f1f1f1;
+  color: #333;
+}
+.btn-secondary {
+  background-color: #f1f1f1;
+  color: #333;
+}
 .btn-borrow {
-  background-color: #10b981; /* สีเขียว */
+  background-color: #10b981;
   color: white;
 }
 
@@ -161,7 +216,7 @@ body {
 }
 
 .btn-return {
-  background-color: #ef4444; /* สีแดง */
+  background-color: #ef4444;
   color: white;
 }
 
@@ -170,5 +225,113 @@ body {
 }
 
 /* สถานะตัวอักษร */
-.status-available { color: #10b981; font-weight: bold; }
-.status-borrowed { color: #ef4444; font-weight: bold; }
+.status-available {
+  color: #10b981;
+  font-weight: bold;
+}
+.status-borrowed {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* สไตล์พื้นฐานของกลุ่มปุ่ม */
+.filter-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* สไตล์ปุ่มแบบพื้นฐาน */
+.btn-filter {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #64748b;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+/* สีแยกตามประเภท */
+.btn-all {
+  background-color: #e2e8f0;
+  color: #475569;
+}
+.btn-ready {
+  background-color: #22c55e;
+  color: white;
+}
+.btn-borrowed {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ไปวาง */
+.btn-filter:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.9);
+}
+.btn-filter.active {
+  background: #dc2743; /* สีเดียวกับ Loader */
+  color: white;
+}
+.btn-filter:hover:not(.active) {
+  background: #e2e8f0;
+}
+
+/* เลเยอร์สีดำโปร่งแสงที่ทับทั้งหน้าจอ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* สีดำจางๆ */
+  display: flex; /* ใช้ Flexbox */
+  justify-content: center; /* จัดกึ่งกลางแนวนอน */
+  align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+  z-index: 1000; /* ให้อยู่บนสุดของทุกอย่าง */
+}
+
+/* กล่องสีขาวที่มีเนื้อหาฟอร์ม */
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%; /* กว้าง 90% ของจอมือถือ */
+  max-width: 450px; /* แต่ไม่เกิน 450px บนจอคอม */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out; /* เพิ่มแอนิเมชันตอนเด้งออกมา */
+}
+
+/* สไตล์แอนิเมชันให้ Modal ค่อยๆ เด้งมากลางจอ */
+@keyframes modalFadeIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ตกแต่งปุ่มใน Modal ให้ดูดีขึ้น */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* ช่องกรอกชื่อผู้ยืม */
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 16px;
+}
