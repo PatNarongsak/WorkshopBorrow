@@ -6,7 +6,7 @@ import "./App.css";
 
 // API URL ของ Google Apps Script
 const API_URL =
-  "https://script.google.com/macros/s/AKfycbyWRH_BkF2A02YcOclsBKa0jai0cZMViTw2dTiYv92FOXowHaWSffLvsXWHc6nnYvMKyg/exec";
+  "https://script.google.com/macros/s/AKfycbxr3lmfIym-Yla-Ig9GL_2hG8K0qWHnHkXvNz_nw-1oOQsurJzeBWiFvbhfWKiJDYbFMA/exec";
 
 function App() {
   // states สำหรับข้อมูลอุปกรณ์และการกรอง
@@ -19,6 +19,7 @@ function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [borrowerName, setBorrowerName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -74,11 +75,14 @@ function App() {
           action: "borrow",
           equipmentId: selectedItem.id,
           borrowerName: borrowerName,
+          phoneNumber: phoneNumber,
         }),
         { headers: { "Content-Type": "text/plain" } },
       );
 
       await fetchData();
+      setBorrowerName("");
+      setPhoneNumber("");
       Swal.fire("สำเร็จ", "ยืมอุปกรณ์เรียบร้อย", "success");
     } catch (error) {
       Swal.fire("ผิดพลาด", "เกิดข้อผิดพลาดในการเชื่อมต่อ", "error");
@@ -253,6 +257,16 @@ function App() {
               value={borrowerName}
               onChange={(e) => setBorrowerName(e.target.value)}
               placeholder="ระบุชื่อของคุณ..."
+            />
+            <label style={{ display: "block", marginBottom: "5px" }}>
+              เบอร์โทรศัพท์
+            </label>
+            <input
+              type="text"
+              className="form-input"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              placeholder="08X-XXXXXXX"
             />
 
             <div className="modal-actions">
