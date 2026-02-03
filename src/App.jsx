@@ -189,14 +189,14 @@ function App() {
                     </span>
                   </div>
                   <div className="card-body">
-                    {/* ส่วนที่ 1: ข้อมูลชื่อและประเภท (หุ้มด้วย div เพื่อใช้ดันปุ่ม) */}
+                    {/* ส่วนที่ 1: ข้อมูลชื่อและประเภท */}
                     <div className="card-content-wrapper">
                       <h3 className="card-title">{item.name}</h3>
                       <p className="card-meta">
                         {item.type} • {item.id}
                       </p>
 
-                      {/* ส่วนที่ 2: ข้อมูลผู้ยืม (ถ้ามี) */}
+                      {/* ส่วนที่ 2: ข้อมูลผู้ยืม */}
                       <div className="borrow-info-container">
                         {isBorrowed && (
                           <div className="borrow-info">
@@ -211,7 +211,7 @@ function App() {
                       </div>
                     </div>
 
-                    {/* ส่วนที่ 3: ปุ่มกด (แยกออกมาอยู่ล่างสุด) */}
+                    {/* ส่วนที่ 3: ปุ่มกด */}
                     <div className="card-footer">
                       {isBorrowed ? (
                         <button
